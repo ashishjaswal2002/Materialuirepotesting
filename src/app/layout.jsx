@@ -1,5 +1,5 @@
 
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import {AppRouterCacheProvider} from '@mui/material/-nextjs/v15-appRouter';
 import Providers  from '@util/Providers'
 
 import localFont from "next/font/local";
