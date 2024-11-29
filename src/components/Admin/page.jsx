@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import logo from '@assets/Images/Logo.png';
-
-import axios from "axios";
+import Image from "next/image";
 
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
@@ -64,7 +63,7 @@ export default function AdminLogin() {
         <div className="bg-white rounded-lg shadow-xl p-10 ">
           <div className="flex justify-center mb-6">
             <div className="rounded-full flex items-center justify-center">
-              <img src={logo} className="h-10" alt="Company Logo" />
+              <Image src={logo} width={100} height={100} className="h-10" alt="Company Logo" />
             </div>
           </div>
           <h2 className="text-2xl font-bold text-center text-gray-700 mb-8">

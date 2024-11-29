@@ -1,9 +1,29 @@
-
-import {AppRouterCacheProvider} from '@mui/material/-nextjs/v15-appRouter';
-import Providers  from '@util/Providers'
+import React from "react";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 
 import localFont from "next/font/local";
 import "./globals.css";
+import Provider from "../util/Providers";
+
+import { AppProvider } from "@toolpad/core/nextjs";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
+const NAVIGATION = [
+  {
+    kind: "header",
+    title: "Main items",
+  },
+  {
+    title: "Dashboard",
+    icon: <DashboardIcon />,
+  },
+  {
+    segment: "orders",
+    title: "Orders",
+    icon: <ShoppingCartIcon />,
+  },
+];
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,13 +47,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AppRouterCacheProvider>
-        
-       <Providers>
-          {children}
-
-       </Providers>
-        </AppRouterCacheProvider>
+        <Provider>
+          <AppRouterCacheProvider>
+            <AppProvider navigation={NAVIGATION}>{children}</AppProvider>
+          </AppRouterCacheProvider>
+        </Provider>
       </body>
     </html>
   );
